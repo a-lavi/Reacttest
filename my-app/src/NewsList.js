@@ -20,7 +20,7 @@ function NewsList() {
         {newsListData.map((news) => {
           console.log(news)
           return (
-            <li>{news.page}</li>
+            <li>hey</li>
        
       )
       
