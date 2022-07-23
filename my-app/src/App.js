@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from "react";
+
 
 function App() {
+  const [List, setList] = useState([])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  }
+  const fetchData = async () => {
+    const {data} = await axios.get(url: "https://api.github.com/repos/facebook/create-react-app/issues")
+    
+    setList(data)
+  } 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
