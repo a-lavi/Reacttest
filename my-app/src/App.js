@@ -1,25 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from "react";
+import {Route, Routes } from "react-router-dom";
+import  NewsList from "./NewsList.js"
 
 
 function App() {
-  const [List, setList] = useState([])
+  
 
-  useEffect(() => {
-    fetchData()
-  }, [])
-  }
-  const fetchData = async () => {
-    const {data} = await axios.get(url: "https://api.github.com/repos/facebook/create-react-app/issues")
+  return(
+<div>
+    <div>ssss</div>
+    <h1>Text</h1>
     
-    setList(data)
-  } 
-  return (
-    <div className="App">
-      
-    </div>
-  );
+
+  
+  <Routes>
+    <Route path="/" element={<NewsList/>}/>
+  </Routes>
+  </div>
+  )
 }
+        
+            
 
 export default App;
