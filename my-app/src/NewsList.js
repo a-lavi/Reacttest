@@ -12,12 +12,13 @@ function NewsList() {
       setNewsListData(result.hits)
       
     }
+  
     
   }
   console.log(newsListData)
 
   return (
-    <div>
+    <div className="newlistData">
       <ul>
         {newsListData.map((news,index) => {
           console.log(news)
@@ -25,6 +26,8 @@ function NewsList() {
           
               <li key={index}>
                 <a href={news.url}>{news.title}</a>
+                <span><a href="">{news.author}</a>
+                <a></a></span>
                 </li>
           )})    
       }

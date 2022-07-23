@@ -3,7 +3,7 @@ function Footer(){
         <div className="footerflex">
         <p> About </p>
         <p> Contact </p>
-        <p> Test </p>
+        <p> Buy me a Coffee <br/> most important</p>
         </div>
     )
 }

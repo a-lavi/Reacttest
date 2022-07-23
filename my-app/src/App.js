@@ -5,6 +5,9 @@ import {Route, Routes } from "react-router-dom";
 import  NewsList from "./NewsList.js"
 import Header from "./Header.js"
 import Footer from "./Footer.js"
+import Users from './Components/Users';
+import Items from './Components/Items';
+import Search from './Components/Search';
 
 
 function App() {
@@ -14,8 +17,6 @@ function App() {
     
   <div className="App">
     <Header/>
-    <div>ssss</div>
-    <h1>hi Ali</h1>  
   <Routes>
     <Route path="/users/:username" element={<Users/>} />
     <Route path="/" element={<NewsList/>}/>
