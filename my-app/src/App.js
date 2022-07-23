@@ -9,9 +9,9 @@ function App() {
   
 
   return(
-<div>
+<div className="App">
     <div>ssss</div>
-    <h1>Text</h1>
+    <h1>hi Ali</h1>
     
 
   
