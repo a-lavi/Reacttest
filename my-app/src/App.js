@@ -13,13 +13,13 @@ import Pagination from './Components/Pagination';
 
 function App() {
 
-
+const url = `https://hn.algolia.com/api/v1/search_by_date?tags=(story,poll)`
   const [newsListData, setNewsListData] = useState([])
-  const [queryString, setQueryString] = useState(`https://hn.algolia.com/api/v1/search_by_date?tags=(story,poll)`)
+  const [queryString, setQueryString] = useState(url)
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const [pageIndex, setPageIndex] = useState(1)
-  const [postsPerPage,setPostsPerPage] = useState(0)
+  const [pageIndex, setPageIndex] = useState(0)
+  const [nbPages,setNbPages] = useState(0)
  
 
   useEffect(() => { getData() }, [queryString])
@@ -34,18 +34,15 @@ function App() {
         setError("There isn't any data");
       }
       setNewsListData(() => result.hits)
-      setPostsPerPage(()=> result.nbPages)
+      setNbPages(()=> result.nbPages)
+      setPageIndex(()=> result.page )
     }
 
     setLoading(false)
   }
-  console.log(postsPerPage)
   
-  // get current news
- /*  const lastPost = currentPost * postPerPage
-  const firstPost= lastPost - postPerPage;
-  const currentImages = memeObjs.slice(firstImage, lastImage)
-  console.log(newsListData) */
+  
+  
   return (
 
     <div className="App">
@@ -60,7 +57,9 @@ function App() {
       queryString={queryString} 
       setQueryString={setQueryString} 
       pageIndex={pageIndex} 
-      setPageIndex={pageIndex} />
+      setPageIndex={setPageIndex}
+      nbPages={nbPages} 
+      url={url}/>
       <Footer />
     </div>
   )

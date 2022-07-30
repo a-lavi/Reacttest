@@ -1,14 +1,26 @@
 import React from 'react'
-const Pagination = ({pageIndex, setPageIndex, queryString,setQueryString}) => {
+const Pagination = ({pageIndex,url, setPageIndex, queryString,setQueryString,nbPages}) => {
   
-    const paginate =()=>{
-        setPageIndex=""
+    const paginateback =()=>{
+        console.log("hey")
+        /* setPageIndex(pageIndex +1) */
+        setQueryString(`${url}&&page=${pageIndex - 1} `)
       }
+      const paginatefor =()=>{
+
+        
+        setQueryString(`${url}&&page=${pageIndex + 1} `)
+      }
+ 
   
     return (
     <div>
-        <button onClick={paginate}>back</button>
-        <button onClick={paginate}>next</button>
+        <div>{pageIndex === 0 ? (<button disabled={true} >Back</button>):<button onClick={paginateback}>Back</button> }</div>
+<div>
+    <div>{pageIndex === nbPages ? (<button disabled={true} onClick={paginatefor}>Next</button>):<button onClick={paginatefor}>Next</button> }</div>
+    </div>
+        
+        
     </div>
   )
 }
