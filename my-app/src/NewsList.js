@@ -1,27 +1,18 @@
 import { useState, useEffect } from "react";
 
-function NewsList() {
-  const [newsListData, setNewsListData] = useState([])
-  useEffect(() => { getData() }, [])
-  const getData = async () => {
-    const response = await fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=(story,poll)`)
-    console.log(response)
-    if (response.ok) {
-      const result = await response.json();
-      console.log(result)
-      setNewsListData(result.hits)
-      
-    }
-  
-    
+function NewsList({newsListData, setQueryString}) {
+  const [handler, setHandler] = useState("")
+  const inputHandler = (event)=>{
+setHandler(event.target.value)
+console.log(handler)
+
   }
-  console.log(newsListData)
 
   return (
     <div className="newlistData">
       <ul>
         {newsListData.map((news,index) => {
-          console.log(news)
+          
           return(
           
               <li key={index}>
@@ -34,6 +25,10 @@ function NewsList() {
      
       
       </ul>
+      <div>
+        <input type="text" onChange={inputHandler} />
+        <button onClick={()=>{setQueryString(`http://hn.algolia.com/api/v1/search?query=${handler}`)}}>Search</button>
+      </div>
     </div>
 
   )
