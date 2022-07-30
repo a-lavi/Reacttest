@@ -1,33 +1,34 @@
 import { useState, useEffect } from "react";
 
-function NewsList() {
-  const [newsListData, setNewsListData] = useState([])
-  useEffect(() => { getData() }, [])
-  const getData = async () => {
-    const response = await fetch(`https://hn.algolia.com/api/v1/search?query=`)
-    console.log(response)
-    if (response.ok) {
-      const result = await response.json();
-      console.log(result)
-      setNewsListData(result)
-    }
+function NewsList({newsListData, setQueryString}) {
+  const [handler, setHandler] = useState("")
+  const inputHandler = (event)=>{
+setHandler(event.target.value)
+console.log(handler)
+
   }
 
-
   return (
-    <div>
+    <div className="newlistData">
       <ul>
-        {newsListData.map((news) => {
-          console.log(news)
-          return (
-            <li>hey</li>
-       
-      )
-      
-      })}
+        {newsListData.map((news,index) => {
+          
+          return(
+          
+              <li key={index}>
+                <a href={news.url}>{news.title}</a>
+                <span><a href="">{news.author}</a>
+                <a></a></span>
+                </li>
+          )})    
+      }
      
       
       </ul>
+      <div>
+        <input type="text" onChange={inputHandler} />
+        <button onClick={()=>{setQueryString(`http://hn.algolia.com/api/v1/search?query=${handler}`)}}>Search</button>
+      </div>
     </div>
 
   )
