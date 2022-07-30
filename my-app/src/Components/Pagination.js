@@ -6,9 +6,9 @@ const Pagination = ({pageIndex, setPageIndex, queryString,setQueryString}) => {
       }
   
     return (
-    <div>
-        <button onClick={paginate}>back</button>
-        <button onClick={paginate}>next</button>
+    <div className="buttonflex">
+        <button onClick={paginate} className="pagbutton">back</button>
+        <button onClick={paginate} className="pagbutton">next</button>
     </div>
   )
 }
