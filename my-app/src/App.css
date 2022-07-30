@@ -39,7 +39,8 @@
 /* Header */
 .headerflex{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 15rem;
   background-color: orange;
   border-style: solid  ;
 }
@@ -120,7 +121,8 @@ a{
 /* Footer */
 .footerflex{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 15rem;
   background-color: orange;
   border-style: solid  ;
 }
